@@ -1,5 +1,4 @@
 {
-  coreutils,
   less,
   lib,
   whois,
@@ -36,15 +35,13 @@ writeShellScriptBin
 
   for d
   do
-    ${coreutils}/bin/cat  << END
-  ''${SPACING}### Handling domain '$d' ###
+    echo "''${SPACING}### Handling domain '$d' ###
 
-  ### START Whois data ###
+### START Whois data ###
 
-  $(${lib.meta.getExe whois} --no-recursion -H "$d")
+$(${lib.meta.getExe whois} --no-recursion -H "$d")
 
-  ### END Whois data ###
-  END
+### END Whois data ###"
 
     SPACING=$'\n'
   done |& ${less}/bin/less -F -i
