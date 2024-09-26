@@ -41,7 +41,7 @@ writeShellScriptBin
 
   ### START Whois data ###
 
-  $(${coreutils}/bin/stdbuf --output=0 ${whois}/bin/whois --no-recursion -H "$d")
+  $(${lib.meta.getExe whois} --no-recursion -H "$d")
 
   ### END Whois data ###
   END
